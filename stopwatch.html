@@ -158,12 +158,13 @@
         function pausebtn(){
             if (isRunning){
               clearInterval(timer);
+               laps.push(display.textContent);
+        updateLaps();
              isRunning = false;
             }
 
-             // Save the lap time
-        laps.push(display.textContent);
-        updateLaps();
+             
+       
           
         }
         function resetbtn(){
@@ -179,7 +180,7 @@
         function update(){
           let currentDate = Date.now();
           elapsedTime = currentDate - startTime;
-
+       
           let hours = Math.floor(elapsedTime / (1000 * 60 * 60)).toString().padStart(2,0);
           let minutes = Math.floor((elapsedTime / (1000 * 60)) %60).toString().padStart(2,0);
           let seconds =Math.floor((elapsedTime / 1000 ) % 60 ).toString().padStart(2,0);
