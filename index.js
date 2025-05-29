@@ -3,6 +3,7 @@
     const today = new Date();
     let getHours = today.getHours().toString().padStart(2,0);
     let meridian = getHours > 12 ? 'pm': 'am'
+    getHours = getHours % 12 || 12;
     const getMinutes = today.getMinutes().toString().padStart(2,0);
     const getSeconds = today.getSeconds().toString().padStart(2,0);
     const timeString = `${getHours} : ${getMinutes} : ${getSeconds} ${meridian} `;
